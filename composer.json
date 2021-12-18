@@ -1,5 +1,5 @@
 {
-    "name": "oat-sa/lib-tao-dtms",
+    "name": "openthinklabs/lib-tao-dtms",
     "type": "library",
     "description": "Classes for manipulate dates and intervals with microseconds precision",
     "keywords": ["date", "time", "datetime", "ms", "microseconds", "milliseconds", "interval", "ISO8601", "fractions"],
