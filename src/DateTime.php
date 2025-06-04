@@ -9,7 +9,7 @@ class DateTime extends \DateTime
     /**
      * Improved ISO8601 format string with support of microseconds.
      */
-    const ISO8601 = 'Y-m-d\TH:i:s.u\Z';
+    public const ISO8601_MICROSECONDS = 'Y-m-d\TH:i:s.u\Z';
 
     /**
      * @var int Current number of microseconds.
@@ -57,7 +57,7 @@ class DateTime extends \DateTime
 
         $datetime = \DateTime::createFromFormat($format, $time, $timezone);
 
-        return new self($datetime->format(DateTime::ISO8601), $timezone);
+        return new self($datetime->format(DateTime::ISO8601_MICROSECONDS), $timezone);
     }
 
     /**
@@ -83,7 +83,7 @@ class DateTime extends \DateTime
         $time = \DateTime::createFromFormat('U.u', join('.', array($s, str_replace('0.', '', sprintf('%6f', $u)))));
         $this->microseconds = $time->format('u') ?: 0;
 
-        return parent::__construct($time->format(static::ISO8601), $timezone);
+        return parent::__construct($time->format(static::ISO8601_MICROSECONDS), $timezone);
     }
 
     /**
@@ -292,6 +292,6 @@ class DateTime extends \DateTime
      */
     public function __toString()
     {
-        return $this->format(static::ISO8601);
+        return $this->format(static::ISO8601_MICROSECONDS);
     }
 }
